@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "name": "Plaza Moreno",
+        "address": "Calle 12 y 54, La Plata",
+        "lat": -34.9205,
+        "lng": -57.9536,
+        "assignedDriverId": null
+    },
+    {
+        "id": 2,
+        "name": "Catedral de La Plata",
+        "address": "Calle 14 entre 51 y 53, La Plata",
+        "lat": -34.9211,
+        "lng": -57.9548,
+        "assignedDriverId": 1
+    },
+    {
+        "id": 3,
+        "name": "Parque Saavedra",
+        "address": "Calle 12 y 64, La Plata",
+        "lat": -34.9172,
+        "lng": -57.9401,
+        "assignedDriverId": null
+    },
+    {
+        "id": 4,
+        "name": "Estadio Ciudad de La Plata",
+        "address": "Av. 25 y 32, La Plata",
+        "lat": -34.9128,
+        "lng": -57.9889,
+        "assignedDriverId": 2
+    },
+    {
+        "id": 5,
+        "name": "Museo de Ciencias Naturales",
+        "address": "Paseo del Bosque s/n, La Plata",
+        "lat": -34.9054,
+        "lng": -57.9372,
+        "assignedDriverId": null
+    },
+    {
+        "id": 6,
+        "name": "Teatro Argentino",
+        "address": "Av. 51 entre 9 y 10, La Plata",
+        "lat": -34.9174,
+        "lng": -57.9563,
+        "assignedDriverId": 3
+    },
+    {
+        "id": 7,
+        "name": "Facultad de Ingeniería UNLP",
+        "address": "Calle 1 y 47, La Plata",
+        "lat": -34.9120,
+        "lng": -57.9430,
+        "assignedDriverId": null
+    },
+    {
+        "id": 8,
+        "name": "Hipódromo de La Plata",
+        "address": "Calle 44 y 115, La Plata",
+        "lat": -34.9042,
+        "lng": -57.9244,
+        "assignedDriverId": null
+    },
+    {
+        "id": 9,
+        "name": "Meridiano V",
+        "address": "Calle 17 y 71, La Plata",
+        "lat": -34.9370,
+        "lng": -57.9472,
+        "assignedDriverId": 4
+    },
+    {
+        "id": 10,
+        "name": "República de los Niños",
+        "address": "Camino Centenario y 501, Gonnet, La Plata",
+        "lat": -34.8847,
+        "lng": -58.0069,
+        "assignedDriverId": null
+    },
+    {
+        "id": 11,
+        "name": "Parque Ecológico",
+        "address": "Camino Centenario y 403, Villa Elisa, La Plata",
+        "lat": -34.8736,
+        "lng": -58.0750,
+        "assignedDriverId": null
+    },
+    {
+        "id": 12,
+        "name": "Casa Curutchet",
+        "address": "Av. 53 320, La Plata",
+        "lat": -34.9118,
+        "lng": -57.9453,
+        "assignedDriverId": 5
+    },
+    {
+        "id": 13,
+        "name": "Estación de La Plata",
+        "address": "Calle 1 y 44, La Plata",
+        "lat": -34.9052,
+        "lng": -57.9444,
+        "assignedDriverId": null
+    },
+    {
+        "id": 14,
+        "name": "Paseo del Bosque",
+        "address": "Av. 1 entre 50 y 60, La Plata",
+        "lat": -34.9098,
+        "lng": -57.9360,
+        "assignedDriverId": null
+    },
+    {
+        "id": 15,
+        "name": "Centro Cultural Pasaje Dardo Rocha",
+        "address": "Calle 50 entre 6 y 7, La Plata",
+        "lat": -34.9183,
+        "lng": -57.9527,
+        "assignedDriverId": 5
+    },
+    {
+        "id": 16,
+        "name": "Jardín Zoológico y Botánico",
+        "address": "Av. 52 y 118, La Plata",
+        "lat": -34.9113,
+        "lng": -57.9378,
+        "assignedDriverId": null
+    },
+    {
+        "id": 17,
+        "name": "Observatorio Astronómico",
+        "address": "Paseo del Bosque s/n, La Plata",
+        "lat": -34.9064,
+        "lng": -57.9322,
+        "assignedDriverId": null
+    },
+    {
+        "id": 18,
+        "name": "Facultad de Bellas Artes UNLP",
+        "address": "Diagonal 78 680, La Plata",
+        "lat": -34.9201,
+        "lng": -57.9478,
+        "assignedDriverId": 2
+    },
+    {
+        "id": 19,
+        "name": "Plaza Islas Malvinas",
+        "address": "Calle 19 y 51, La Plata",
+        "lat": -34.9250,
+        "lng": -57.9528,
+        "assignedDriverId": null
+    },
+    {
+        "id": 20,
+        "name": "Estadio Juan Carmelo Zerillo",
+        "address": "Av. 60 y 118, La Plata",
+        "lat": -34.9097,
+        "lng": -57.9242,
+        "assignedDriverId": 1
+    }
+]
