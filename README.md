@@ -85,4 +85,4 @@ La aplicación tiene las siguientes funcionalidades:
 
 ## Contacto
 
-Si tienes preguntas o sugerencias, no dudes en contactarme a través de [tu correo electrónico](mailto:matiasaarea@hotmail.com).
+Si tienes preguntas o sugerencias, no dudes en contactarme a través de [matiasaarea@hotmail.com](mailto:matiasaarea@hotmail.com).
