@@ -49,9 +49,9 @@ const MapComponent: React.FC<MapComponentProps> = ({ points }) => {
 	return (
 		<MapContainer
 			center={[-34.92145, -57.95453]}
-			zoom={13}
+			zoom={12}
 			scrollWheelZoom={false}
-			style={{ height: '100%', width: '100%' }}
+			style={{ height: '100%', width: '100%', zIndex: 0 }}
 		>
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
