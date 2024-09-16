@@ -2,11 +2,19 @@ import { Employee } from '../../../types/Employee.types'
 
 interface EmployeeItemProps {
 	person: Employee
+	onEmployeeClick: (employee: Employee | null) => void
 }
 
-export const EmployeeItem: React.FC<EmployeeItemProps> = ({ person }) => {
+export const EmployeeItem: React.FC<EmployeeItemProps> = ({
+	person,
+	onEmployeeClick,
+}) => {
 	return (
-		<li key={person.id} className="flex justify-between gap-x-6 p-4">
+		<li
+			key={person.id}
+			className="flex justify-between gap-x-6 p-4"
+			onClick={() => onEmployeeClick(person)}
+		>
 			<div className="flex min-w-0 gap-x-4">
 				<img
 					alt=""
