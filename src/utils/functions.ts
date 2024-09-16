@@ -32,6 +32,11 @@ export const groupMapPointsByColor = (
 				result[color] = []
 			}
 			result[color].push(point)
+		} else {
+			if (!result['red']) {
+				result['red'] = []
+			}
+			result['red'].push(point)
 		}
 
 		return result
