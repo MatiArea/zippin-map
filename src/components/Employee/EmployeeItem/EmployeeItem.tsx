@@ -12,7 +12,7 @@ export const EmployeeItem: React.FC<EmployeeItemProps> = ({
 	return (
 		<li
 			key={person.id}
-			className="flex justify-between gap-x-6 p-4"
+			className="flex justify-between gap-x-6 p-4 hover:bg-gray-50 cursor-pointer"
 			onClick={() => onEmployeeClick(person)}
 		>
 			<div className="flex min-w-0 gap-x-4">
