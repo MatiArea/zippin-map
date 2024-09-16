@@ -4,5 +4,5 @@ export interface MapPoint {
 	address: string
 	lat: number
 	lng: number
-	assignedDriverId?: number
+	assignedDriverId?: number | null
 }
