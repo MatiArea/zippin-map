@@ -28,8 +28,13 @@ class MapPointsService {
 		const points = this.getPoints()
 		const pointIndex = points.findIndex((point) => point.id === id)
 		if (pointIndex !== -1) {
-			points[pointIndex].assignedDriverId = assignedDriverId
-			localStorage.setItem(this.key, JSON.stringify(points))
+			if (assignedDriverId === -1) {
+				points[pointIndex].assignedDriverId = null
+				localStorage.setItem(this.key, JSON.stringify(points))
+			} else {
+				points[pointIndex].assignedDriverId = assignedDriverId
+				localStorage.setItem(this.key, JSON.stringify(points))
+			}
 		}
 	}
 }
