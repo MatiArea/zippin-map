@@ -5,22 +5,29 @@ import React from 'react'
 
 interface TableBodyProps {
 	items: MapPoint[]
+	selectedRows: Set<number>
+	onItemSelected: (id: number) => void
 }
 
 export const TableBody: React.FC<TableBodyProps> = ({
 	items,
+	selectedRows,
+	onItemSelected,
 }: TableBodyProps) => {
 	return (
 		<tbody className="bg-white divide-y divide-gray-200">
 			{items.map((item) => (
 				<tr key={item.id}>
-					<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-						{item.name}
+					<td className="p-4">
+						<input
+							type="checkbox"
+							checked={selectedRows.has(item.id)}
+							onChange={() => onItemSelected(item.id)}
+						/>
 					</td>
-					<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-						{item.address}
-					</td>
-					<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+					<td className="p-4 text-sm text-gray-900">{item.name}</td>
+					<td className="p-4 text-sm text-gray-900">{item.address}</td>
+					<td className="p-4 text-sm text-gray-900">
 						{item.assignedDriverId ? (
 							<FaCheckCircle
 								className="text-green-500"

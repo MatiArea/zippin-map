@@ -6,207 +6,89 @@ import { TableBody } from './Body/TableBody'
 
 interface TableComponentProps {
 	data: MapPoint[]
+	onRowClick: (mapPoint: MapPoint[]) => void
 }
 
-const TableComponent: React.FC<TableComponentProps> = ({ data }) => {
-	// Datos de ejemplo
-	// const data = [
-	// 	{
-	// 		id: 1,
-	// 		name: 'Ubicacion A',
-	// 		address: 'john@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		name: 'Ubicacion B',
-	// 		address: 'jane@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		name: 'Ubicacion C',
-	// 		address: 'sam@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 4,
-	// 		name: 'Ubicacion E',
-	// 		address: 'alice@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 5,
-	// 		name: 'Ubicacion E',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 6,
-	// 		name: 'Ubicacion F',
-	// 		address: 'bob@example.com',
-	// 		asign: false,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 7,
-	// 		name: 'Ubicacion G',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 8,
-	// 		name: 'Ubicacion H',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 9,
-	// 		name: 'Ubicacion I',
-	// 		address: 'bob@example.com',
-	// 		asign: false,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 10,
-	// 		name: 'Ubicacion J',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 11,
-	// 		name: 'Ubicacion K',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 12,
-	// 		name: 'Ubicacion L',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 13,
-	// 		name: 'Ubicacion M',
-	// 		address: 'bob@example.com',
-	// 		asign: false,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 14,
-	// 		name: 'Ubicacion N',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 15,
-	// 		name: 'Ubicacion O',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 16,
-	// 		name: 'Ubicacion P',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 17,
-	// 		name: 'Ubicacion Q',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 18,
-	// 		name: 'Ubicacion R',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 19,
-	// 		name: 'Ubicacion S',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// 	{
-	// 		id: 20,
-	// 		name: 'Ubicacion T',
-	// 		address: 'bob@example.com',
-	// 		asign: true,
-	// 		lat: 0,
-	// 		lng: 0,
-	// 	},
-	// ]
-
+const TableComponent: React.FC<TableComponentProps> = ({
+	data,
+	onRowClick,
+}) => {
 	const [currentPage, setCurrentPage] = useState(1)
-	const [itemsPerPage] = useState(5) // Cambia este valor para más elementos por página
+	const [itemsPerPage] = useState(5)
+	const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set())
 
-	// Calcular el índice de inicio y final de los datos
 	const indexOfLastItem = currentPage * itemsPerPage
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage
 	const currentItems = data.slice(indexOfFirstItem, indexOfLastItem)
 
-	// Cambiar página
 	const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
-
-	// Calcular el número total de páginas
 	const totalPages = Math.ceil(data.length / itemsPerPage)
+
+	const handleRowSelection = (id: number) => {
+		const updatedSelectedRows = new Set(selectedRows)
+		if (updatedSelectedRows.has(id)) {
+			updatedSelectedRows.delete(id)
+		} else {
+			updatedSelectedRows.add(id)
+		}
+		setSelectedRows(updatedSelectedRows)
+	}
+
+	const handleAssign = () => {
+		const arrayMapPoints = data.filter((item) => selectedRows.has(item.id))
+		onRowClick(arrayMapPoints)
+		setSelectedRows(new Set())
+	}
+
+	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.checked) {
+			const allIds = new Set(data.map((item) => item.id))
+			setSelectedRows(allIds)
+		} else {
+			setSelectedRows(new Set())
+		}
+	}
 
 	return (
 		<div className="flex flex-col justify-center items-center py-4 w-full md:w-9/12">
+			{selectedRows.size > 0 && (
+				<button
+					className="bg-zippin hover:bg-green-400 text-white font-medium p-1 px-4 rounded-xl self-end m-2"
+					onClick={() => handleAssign()}
+				>
+					Asignar
+				</button>
+			)}
 			<table className="w-full divide-y divide-gray-200">
 				<thead className="bg-gray-50">
 					<tr>
-						<th className="px-6 py-3  text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+						<th className="px-4 py-3 text-left">
+							<input
+								className="rounded"
+								type="checkbox"
+								onChange={(e) => {
+									handleOnChange(e)
+								}}
+							/>
+						</th>
+						<th className="px-4 py-3  text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
 							Name
 						</th>
-						<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+						<th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
 							Address
 						</th>
-						<th className="px-6 py-3  text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+						<th className="px-4 py-3  text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
 							Asign
 						</th>
 					</tr>
 				</thead>
-				<TableBody items={currentItems} />
+				<TableBody
+					items={currentItems}
+					selectedRows={selectedRows}
+					onItemSelected={handleRowSelection}
+				/>
 			</table>
 
-			{/* Paginación */}
 			<PaginateComponent
 				currentPage={currentPage}
 				totalPages={totalPages}
